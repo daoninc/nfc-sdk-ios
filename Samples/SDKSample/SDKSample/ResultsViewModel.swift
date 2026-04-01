@@ -11,6 +11,8 @@ struct PassportResult: Identifiable, @unchecked Sendable {
     var firstName: String?
     var lastName: String?
     var documentNumber: String?
+    var documentCode: String?
+    var nationality: String?
     var issuingState: String?
     var gender: String?
     var dateOfBirth: Date?
@@ -25,6 +27,8 @@ struct PassportResult: Identifiable, @unchecked Sendable {
         firstName: String? = nil,
         lastName: String? = nil,
         documentNumber: String? = nil,
+        documentCode: String? = nil,
+        nationality: String? = nil,
         issuingState: String? = nil,
         gender: String? = nil,
         dateOfBirth: Date? = nil,
@@ -38,6 +42,8 @@ struct PassportResult: Identifiable, @unchecked Sendable {
         self.firstName = firstName
         self.lastName = lastName
         self.documentNumber = documentNumber
+        self.documentCode = documentCode
+        self.nationality = nationality
         self.issuingState = issuingState
         self.gender = gender
         self.dateOfBirth = dateOfBirth

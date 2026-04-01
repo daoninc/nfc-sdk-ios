@@ -65,6 +65,8 @@ struct ResultsView: View {
                             ResultsField(label: "FIRST NAME", value: viewModel.result.firstName)
                             ResultsField(label: "LAST NAME", value: viewModel.result.lastName)
                             ResultsField(label: "DOCUMENT NUMBER", value: viewModel.result.documentNumber)
+                            ResultsField(label: "DOCUMENT CODE", value: viewModel.result.documentCode)
+                            ResultsField(label: "NATIONALITY", value: viewModel.result.nationality)
                             ResultsField(label: "ISSUING STATE", value: viewModel.result.issuingState)
                             ResultsField(label: "GENDER", value: viewModel.result.gender)
                             ResultsField(label: "DATE OF BIRTH", value: viewModel.formattedDateOfBirth)
@@ -229,6 +231,8 @@ private struct IssueRowView: View {
         firstName: "Test",
         lastName: "Test Surname",
         documentNumber: "PE1234567",
+        documentCode: "P",
+        nationality: "IRL",
         issuingState: "Ireland",
         gender: "MALE",
         dateOfBirth: Calendar.current.date(from: DateComponents(year: 2003, month: 9, day: 4)),

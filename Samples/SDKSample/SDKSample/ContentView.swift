@@ -73,7 +73,7 @@ struct ContentView: View {
                             VStack(alignment: .leading, spacing: 2) {
                                 Text("Active Authentication")
                                     .font(.body)
-                                Text("Sends a nonce challenge to the chip")
+                                Text("Sends a random challenge to the chip")
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                             }
@@ -89,6 +89,7 @@ struct ContentView: View {
 
                     // Start NFC Scan button
                     Button {
+                        isDocumentNumberFocused = false
                         viewModel.startNFCScan()
                     } label: {
                         Text("Start NFC Scan")
@@ -112,11 +113,11 @@ struct ContentView: View {
         .onTapGesture {
             isDocumentNumberFocused = false
         }
-        .alert("Missing Information", isPresented: Binding(
+        .alert(viewModel.validationTitle ?? "Missing Information", isPresented: Binding(
             get: { viewModel.validationError != nil },
-            set: { if !$0 { viewModel.validationError = nil } }
+            set: { if !$0 { viewModel.validationError = nil; viewModel.validationTitle = nil } }
         ), actions: {
-            Button("OK") { viewModel.validationError = nil }
+            Button("OK") { viewModel.validationError = nil; viewModel.validationTitle = nil }
         }, message: {
             Text(viewModel.validationError ?? "")
         })

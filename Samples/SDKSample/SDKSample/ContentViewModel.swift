@@ -13,11 +13,13 @@ final class ContentViewModel: ObservableObject {
     @Published var dateOfBirth: Date? = nil
     @Published var dateOfExpiry: Date? = nil
     @Published var activeAuthentication: Bool = false
+    @Published var validationTitle: String? = nil
     @Published var validationError: String? = nil
     @Published var scanError: String? = nil
     @Published var passportResult: PassportResult? = nil
 
     private var nfcReader: IXNFCReader?
+    private var isScanning = false
     private let nfcSupportedOverride: Bool?
 
     // MARK: Initialization
@@ -29,21 +31,29 @@ final class ContentViewModel: ObservableObject {
     // MARK: - Actions
 
     func startNFCScan() {
-        guard !documentNumber.trimmingCharacters(in: .whitespaces).isEmpty else {
-            validationError = "Please enter your document number."
+        guard !isScanning else { return }
+
+        let trimmedDocumentNumber = documentNumber.trimmingCharacters(in: .whitespaces)
+        guard (1...9).contains(trimmedDocumentNumber.count) else {
+            validationTitle = "Invalid Input"
+            validationError = "Document number must be between 1 and 9 characters."
             return
         }
         
         guard let dateOfBirth else {
-            validationError = "Please enter your date of birth."
+            validationTitle = "Invalid Input"
+            validationError = "Please select a date of birth."
             return
         }
         
         guard let dateOfExpiry else {
-            validationError = "Please enter your document expiry date."
+            validationTitle = "Invalid Input"
+            validationError = "Please select a date of expiry."
             return
         }
         
+        isScanning = true
+
         // Trigger NFC scan via SDK
 
         // Initialise the reader with your Daon-issued license string or a path
@@ -82,6 +92,7 @@ final class ContentViewModel: ObservableObject {
                 // Silently ignore user-initiated cancellation of the NFC dialog.
                 if error._code == IXNFCTagError.UserCanceled._code {
                     self?.nfcReader = nil
+                    self?.isScanning = false
                     return
                 }
 
@@ -93,6 +104,7 @@ final class ContentViewModel: ObservableObject {
             }
 
             self?.nfcReader = nil
+            self?.isScanning = false
         }
     }
 
@@ -107,6 +119,8 @@ final class ContentViewModel: ObservableObject {
             firstName: data.firstName,
             lastName: data.lastName,
             documentNumber: data.documentNumber,
+            documentCode: data.documentCode,
+            nationality: data.nationality,
             issuingState: data.state,
             gender: data.gender,
             dateOfBirth: data.dateOfBirth,
