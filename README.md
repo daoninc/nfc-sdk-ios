@@ -210,7 +210,7 @@ The simplest way to build and run is to open the project directly:
 open Samples/SDKSample/SDKSample.xcodeproj
 ```
 
-Then select a simulator or connected device and press **Cmd+R**.
+Then select a simulator or connected device and press **Cmd+R**. To run on a physical device, you will need to configure your own signing identity — see [Code Signing](#code-signing).
 
 ### Debug build (Simulator)
 
