@@ -1,0 +1,15 @@
+{
+  "originHash" : "820b4d376a2515c0e0b99e0fe899542859756be04fae399b3f3099380100a995",
+  "pins" : [
+    {
+      "identity" : "nfc-sdk-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/daoninc/nfc-sdk-ios.git",
+      "state" : {
+        "revision" : "ac8a2a8dce37523d8e7e3e4d78d16910956cecce",
+        "version" : "1.3.12"
+      }
+    }
+  ],
+  "version" : 3
+}
