@@ -107,7 +107,7 @@ Views own their ViewModels via `@StateObject`. All SDK interaction is encapsulat
 |---|---|
 | Xcode | 14 or later |
 | Swift | 5 |
-| Minimum iOS deployment target | 15.0 |
+| Minimum iOS deployment target | 14.0 |
 | Targeted devices | iPhone and iPad |
 | Strict concurrency | `complete` (Swift 6 forward-compatible) |
 
@@ -121,14 +121,14 @@ The Daon NFC SDK (`DaonNFCSDK`) is distributed as a pre-built XCFramework via Sw
 
 ### 1. Add the SDK package to the Xcode project
 
-1. Open `Samples/SDKSample/SDKSample.xcodeproj` in Xcode.
+1. Open your app `.xcodeproj` in Xcode.
 2. Go to **File → Add Package Dependencies…**
 3. Enter the repository URL:
    ```
    https://github.com/daoninc/nfc-sdk-ios
    ```
-4. Set the version rule (e.g. **Up to Next Major Version** from `1.3.12`).
-5. Add the `DaonNFCSDK` library to the **SDKSample** target.
+4. Set the dependency rule (e.g. **Up to Next Major Version** from `1.4.6`).
+5. Add the `DaonNFCSDK` library to your **app target**.
 
 SPM will download the `DaonNFCSDK.xcframework.zip` from the corresponding GitHub Release and verify its checksum automatically.
 
@@ -178,7 +178,7 @@ The sample app is pre-configured with the required NFC settings:
 
 | Framework | Version | Distribution | Purpose |
 |---|---|---|---|
-| `DaonNFCSDK.xcframework` | `1.3.12` | Swift Package Manager (binary target) | Core NFC passport reading library |
+| `DaonNFCSDK.xcframework` | `1.4.6` | Swift Package Manager (binary target) | Core NFC passport reading library |
 
 The SDK ships as a self-contained XCFramework with two slices:
 
