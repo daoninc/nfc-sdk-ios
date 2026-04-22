@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/daoninc/nfc-sdk-ios.git",
       "state" : {
-        "revision" : "fffa4e0e5ba7e4c3ae45fa89d38b1fbac5a7d423",
-        "version" : "1.4.6"
+        "branch" : "main",
+        "revision" : "30d8f9e0fc4f862cc994536bbbb0245ec8d319a7"
       }
     }
   ],
