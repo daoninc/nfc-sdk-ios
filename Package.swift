@@ -17,8 +17,8 @@ let package = Package(
     targets: [
          .binaryTarget(
             name: "DaonNFCSDK",
-            url: "https://github.com/daoninc/nfc-sdk-ios/releases/download/1.4.8/DaonNFCSDK.xcframework.zip",
-            checksum: "677d1a3a432d0c9d2ac498895006dc88d154b9ac21a4efa88c2b56890b9c02ed"
+            url: "https://github.com/daoninc/nfc-sdk-ios/releases/download/1.4.11/DaonNFCSDK.xcframework.zip",
+            checksum: "0ed3b8a914ab67b9b83a5abc97f20a75b728a2b7ab488782d93d748b9ce557aa"
          ),
     ]
 )
